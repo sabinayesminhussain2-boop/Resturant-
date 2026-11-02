@@ -1,0 +1,445 @@
+/* ==========================================================================
+   Culinary experience — the craft
+   ========================================================================== */
+
+.craft {
+  overflow: clip;
+  border-top: 1px solid var(--line-soft);
+  background:
+    radial-gradient(100% 70% at 18% 4%, rgba(20, 62, 48, 0.55), transparent 62%),
+    linear-gradient(180deg, #071912 0%, #05130f 46%, #030d0a 100%);
+}
+
+.craft__ghost {
+  position: absolute;
+  right: -3%;
+  top: 4%;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(9rem, 24vw, 22rem);
+  line-height: 1;
+  color: rgba(236, 227, 207, 0.022);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.craft .container {
+  position: relative;
+  z-index: 1;
+}
+
+.craft__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(0, 1fr);
+  gap: clamp(2.4rem, 6vw, 6rem);
+  align-items: center;
+}
+
+/* ---------- Plate ---------- */
+
+.craft__visual {
+  position: relative;
+}
+
+.craft__plate {
+  position: relative;
+  width: min(34rem, 100%);
+  aspect-ratio: 1;
+  margin-inline: auto;
+}
+
+.craft__plate-img {
+  position: absolute;
+  inset: 0;
+  display: block;
+  border-radius: 50%;
+  background-image: url('/images/dal-makhani.webp');
+  background-size: 212%;
+  background-position: 51% 50%;
+  background-repeat: no-repeat;
+  box-shadow:
+    0 60px 90px -40px rgba(0, 0, 0, 0.9),
+    0 0 90px -20px rgba(201, 164, 95, 0.14),
+    inset 0 0 70px rgba(0, 0, 0, 0.45);
+  animation: plate-hover 14s ease-in-out infinite alternate;
+}
+
+@keyframes plate-hover {
+  from {
+    transform: translateY(-6px);
+  }
+  to {
+    transform: translateY(8px);
+  }
+}
+
+.craft__ring {
+  position: absolute;
+  inset: -4.5%;
+  border: 1px solid rgba(201, 164, 95, 0.2);
+  border-radius: 50%;
+  mask-image: conic-gradient(from 120deg, #000 0deg, rgba(0, 0, 0, 0.3) 140deg, transparent 220deg);
+  -webkit-mask-image: conic-gradient(from 120deg, #000 0deg, rgba(0, 0, 0, 0.3) 140deg, transparent 220deg);
+  pointer-events: none;
+}
+
+.craft__ring--inner {
+  inset: -1px;
+  border-color: rgba(235, 225, 203, 0.1);
+  transform: rotate(180deg);
+}
+
+.craft__stamp {
+  position: absolute;
+  right: -3%;
+  bottom: 6%;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: clamp(94px, 10vw, 124px);
+  aspect-ratio: 1;
+  border: 1px solid rgba(201, 164, 95, 0.3);
+  border-radius: 50%;
+  background: rgba(5, 17, 13, 0.72);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 24px 50px -22px rgba(0, 0, 0, 0.9);
+  text-align: center;
+}
+
+.craft__stamp-value {
+  font-family: var(--font-display);
+  font-size: clamp(1.8rem, 2.6vw, 2.4rem);
+  line-height: 1;
+  color: var(--gold-hi);
+}
+
+.craft__stamp-unit {
+  font-family: var(--font-display);
+  font-size: 0.78rem;
+  font-style: italic;
+  color: var(--gold);
+  margin-top: -0.15rem;
+}
+
+.craft__stamp-label {
+  margin-top: 0.2rem;
+  font-size: 0.42rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-muted);
+}
+
+.craft__aside {
+  position: absolute;
+  left: -1.6rem;
+  bottom: 18%;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  font-size: 0.53rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.craft__spice {
+  position: absolute;
+  top: -4%;
+  right: -2%;
+  width: clamp(96px, 12vw, 158px);
+  z-index: 3;
+  pointer-events: none;
+  mask-image: radial-gradient(circle at 50% 50%, #000 36%, transparent 72%);
+  -webkit-mask-image: radial-gradient(circle at 50% 50%, #000 36%, transparent 72%);
+  animation: float 19s ease-in-out infinite alternate;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.5));
+}
+
+.craft__caption {
+  max-width: 26rem;
+  margin: 1.4rem auto 0;
+  padding-left: 1.1rem;
+  border-left: 1px solid var(--gold-dim);
+  font-size: 0.76rem;
+  line-height: 1.8;
+  color: var(--ink-muted);
+}
+
+.craft__caption-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 0.5rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ---------- Copy ---------- */
+
+.craft__copy .display {
+  margin: 1.2rem 0 1.5rem;
+}
+
+.craft__lede {
+  max-width: 32rem;
+  font-size: clamp(0.95rem, 1.05vw, 1.03rem);
+  line-height: 1.9;
+  color: var(--ink-soft);
+}
+
+.craft__text {
+  max-width: 32rem;
+  margin-top: 1rem;
+  font-size: 0.86rem;
+  line-height: 1.85;
+  color: var(--ink-muted);
+}
+
+.process {
+  margin-top: clamp(2rem, 4vw, 2.8rem);
+  border-top: 1px solid var(--line-soft);
+  list-style: none;
+}
+
+.process__item {
+  display: grid;
+  grid-template-columns: 2.1rem minmax(0, 1fr) 72px;
+  align-items: center;
+  gap: clamp(0.8rem, 2vw, 1.4rem);
+  padding-block: 1.15rem;
+  border-bottom: 1px solid var(--line-soft);
+}
+
+.process__num {
+  font-family: var(--font-display);
+  font-size: 0.88rem;
+  color: var(--gold);
+}
+
+.process__title {
+  margin-bottom: 0.3rem;
+  font-family: var(--font-body);
+  font-size: 0.66rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.process__body p {
+  max-width: 30rem;
+  font-size: 0.82rem;
+  line-height: 1.78;
+  color: var(--ink-muted);
+}
+
+.process__thumb {
+  width: 72px;
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  opacity: 0.85;
+  transition:
+    transform 0.6s var(--ease),
+    opacity 0.6s var(--ease),
+    border-color 0.6s var(--ease);
+}
+
+.process__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.process__item:hover .process__thumb {
+  transform: scale(1.06) rotate(-2deg);
+  border-color: var(--gold-dim);
+  opacity: 1;
+}
+
+.craft__quote {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  margin-top: clamp(1.8rem, 4vw, 2.8rem);
+  color: var(--gold-dim);
+}
+
+.craft__quote blockquote {
+  max-width: 33rem;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: clamp(1.25rem, 2vw, 1.65rem);
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+
+.craft__quote cite {
+  font-style: normal;
+  font-size: 0.54rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- Pantry ---------- */
+
+.pantry {
+  margin-top: clamp(3rem, 7vw, 5.5rem);
+  padding-top: 2rem;
+  border-top: 1px solid var(--line-soft);
+}
+
+.pantry__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.pantry__note {
+  font-size: 0.76rem;
+  letter-spacing: 0.02em;
+  color: var(--ink-faint);
+}
+
+.pantry__list {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: clamp(0.8rem, 2vw, 2rem);
+  margin-top: 1.8rem;
+  list-style: none;
+}
+
+.pantry__item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.55rem;
+  text-align: center;
+}
+
+.pantry__img {
+  width: clamp(48px, 5vw, 64px);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border: 1px solid rgba(201, 164, 95, 0.24);
+  border-radius: 50%;
+  padding: 2px;
+  transition: transform 0.6s var(--ease), border-color 0.6s var(--ease);
+}
+
+.pantry__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.pantry__item:hover .pantry__img {
+  transform: translateY(-4px);
+  border-color: var(--gold-dim);
+}
+
+.pantry__name {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--ink);
+}
+
+.pantry__origin {
+  font-size: 0.5rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+.pantry__foot {
+  margin-top: 1.6rem;
+  text-align: center;
+  font-size: 0.56rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--ink-faint);
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 1024px) {
+  .craft__grid {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  .craft__plate {
+    width: min(28rem, 82vw);
+  }
+
+  .craft__aside {
+    display: none;
+  }
+
+  .craft__caption {
+    margin-top: 1.2rem;
+    text-align: left;
+  }
+}
+
+@media (max-width: 640px) {
+  .process__item {
+    grid-template-columns: 1.7rem minmax(0, 1fr) 56px;
+    gap: 0.8rem;
+  }
+
+  .process__thumb {
+    width: 56px;
+  }
+
+  .pantry__list {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    row-gap: 1.4rem;
+  }
+
+  .pantry__head {
+    gap: 0.6rem;
+  }
+
+  .craft__stamp {
+    width: 92px;
+    right: 0;
+  }
+
+  .craft__spice {
+    width: 84px;
+    top: -2%;
+    right: 0;
+  }
+
+  .craft__quote blockquote {
+    font-size: 1.2rem;
+  }
+}
+
+/* ---------- Scroll-linked depth (progressive enhancement) ---------- */
+
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .craft__plate {
+      animation: plate-drift linear both;
+      animation-timeline: view();
+      animation-range: entry 0% exit 100%;
+    }
+
+    @keyframes plate-drift {
+      from {
+        transform: translateY(2.6%) rotate(-1.6deg);
+      }
+      to {
+        transform: translateY(-2.2%) rotate(1.2deg);
+      }
+    }
+  }
+}
